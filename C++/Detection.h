@@ -21,19 +21,19 @@ enum D_SYSTEM {
 
 #if defined _MSC_VER
 
-	#define D_COMPILER_MICROSOFT
+	#define D_COMPILER_MICROSOFT 1
 	#define D_CONST_COMPILER D_COMPILER::MICROSOFT
 
 
 #elif defined __GNUC__ || __MINGW32__ || __MINGW64__
 
-	#define D_COMPILER_GCC
+	#define D_COMPILER_GCC 1
 	#define D_CONST_COMPILER D_COMPILER::GCC
 
 
 #elif defined __clang__
 
-	#define D_COMPILER_CLANG
+	#define D_COMPILER_CLANG 1
 	#define D_CONST_COMPILER D_COMPILER::CLANG
 
 
@@ -51,25 +51,25 @@ enum D_SYSTEM {
 
 #if defined _M_AMD64 || _M_X64 || __x86_64__ || __amd64__
 	
-	#define D_ARCHITECTURE_X64
+	#define D_ARCHITECTURE_X64 1
 	#define D_CONST_ARCHITECTURE D_ARCHITECTURE::X64
 
 
 #elif defined _M_IX86 || __i386__
 
-	#define D_ARCHITECTURE_X86
+	#define D_ARCHITECTURE_X86 1
 	#define D_CONST_ARCHITECTURE D_ARCHITECTURE::X86
 
 
 #elif defined _M_ARM64 || __aarch64__
 
-	#define D_ARCHITECTURE_ARM64
+	#define D_ARCHITECTURE_ARM64 1
 	#define D_CONST_ARCHITECTURE D_ARCHITECTURE::ARM64
 
 
 #elif defined _M_ARM || __arm__
 
-	#define D_ARCHITECTURE_ARM32
+	#define D_ARCHITECTURE_ARM32 1
 	#define D_CONST_ARCHITECTURE D_ARCHITECTURE::ARM32
 
 
@@ -87,25 +87,25 @@ enum D_SYSTEM {
 
 #if defined _WIN64 || _WIN32 || WIN32
 
-	#define D_SYSTEM_WINDOWS
+	#define D_SYSTEM_WINDOWS 1
 	#define D_CONST_SYSTEM D_SYSTEM::WINDOWS
 
 
 #elif defined __ANDROID__ || ANDROID
 	
-	#define D_SYSTEM_ANDROID
+	#define D_SYSTEM_ANDROID 1
 	#define D_CONST_SYSTEM D_SYSTEM::ANDROID
 
 
 #elif defined __linux__
 
-	#define D_SYSTEM_LINUX
+	#define D_SYSTEM_LINUX 1
 	#define D_CONST_SYSTEM D_SYSTEM::LINUX
 
 
 #elif defined __APPLE__
 
-	#define D_SYSTEM_MACOS
+	#define D_SYSTEM_MACOS 1
 	#define D_CONST_SYSTEM D_SYSTEM::MACOS
 
 
