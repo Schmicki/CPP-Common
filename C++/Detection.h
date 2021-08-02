@@ -15,6 +15,7 @@ enum D_SYSTEM {
 };
 
 
+
 /*
 * Detect compiler
 */
@@ -23,18 +24,30 @@ enum D_SYSTEM {
 
 	#define D_COMPILER_MICROSOFT 1
 	#define D_CONST_COMPILER D_COMPILER::MICROSOFT
+	#define D_EXPORT declspec(dllexport)
+	#define D_IMPORT declspec(dllimport)
+	#define D_DONT_EXPORT
+	#define D_FORCE_INLINE __forceinline
 
 
 #elif defined __GNUC__ || __MINGW32__ || __MINGW64__
 
 	#define D_COMPILER_GCC 1
 	#define D_CONST_COMPILER D_COMPILER::GCC
+	#define D_SHARED_EXPORT __attribute__((visibility("default")))
+	#define D_SHARED_IMPORT
+	#define D_DONT_EXPORT __attribute__((visibility("hidden")))
+	#define D_FORCE_INLINE __attribute__((always_inline))
 
 
 #elif defined __clang__
 
 	#define D_COMPILER_CLANG 1
 	#define D_CONST_COMPILER D_COMPILER::CLANG
+	#define D_SHARED_EXPORT __attribute__((visibility("default")))
+	#define D_SHARED_IMPORT
+	#define D_DONT_EXPORT __attribute__((visibility("hidden")))
+	#define D_FORCE_INLINE __attribute__((always_inline))
 
 
 #else
